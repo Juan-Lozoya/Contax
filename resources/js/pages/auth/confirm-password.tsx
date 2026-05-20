@@ -1,4 +1,4 @@
-import { Form, Head } from '@inertiajs/react';
+import { Form } from '@inertiajs/react';
 import {
     index as confirmOptions,
     store as confirmStore,
@@ -14,16 +14,14 @@ import { store } from '@/routes/password/confirm';
 export default function ConfirmPassword() {
     return (
         <>
-            <Head title="Confirm password" />
-
             <PasskeyVerify
                 routes={{
                     options: confirmOptions(),
                     submit: confirmStore(),
                 }}
                 label="Confirm with passkey"
-                loadingLabel="Confirming..."
-                separator="Or confirm with password"
+                loadingLabel="Confirmando..."
+                separator="o confirma con tu contraseña"
             />
 
             <Form {...store.form()} resetOnSuccess={['password']}>
@@ -34,7 +32,7 @@ export default function ConfirmPassword() {
                             <PasswordInput
                                 id="password"
                                 name="password"
-                                placeholder="Password"
+                                placeholder="Contraseña"
                                 autoComplete="current-password"
                                 autoFocus
                             />
@@ -49,7 +47,7 @@ export default function ConfirmPassword() {
                                 data-test="confirm-password-button"
                             >
                                 {processing && <Spinner />}
-                                Confirm password
+                                Confirmar Contraseña
                             </Button>
                         </div>
                     </div>
@@ -60,7 +58,7 @@ export default function ConfirmPassword() {
 }
 
 ConfirmPassword.layout = {
-    title: 'Confirm your password',
+    title: 'Confirma tu contraseña',
     description:
-        'This is a secure area of the application. Please confirm your password before continuing.',
+        'Esta es un área segura de la aplicación. Por favor, confirme su contraseña antes de continuar.',
 };

@@ -53,7 +53,7 @@ export default function Register({ passwordRules }: Props) {
                                     tabIndex={2}
                                     autoComplete="email"
                                     name="email"
-                                    placeholder="email@example.com"
+                                    placeholder="tu@correo.com"
                                 />
                                 <InputError message={errors.email} />
                             </div>
@@ -67,7 +67,6 @@ export default function Register({ passwordRules }: Props) {
                                     type="tel"
                                     tabIndex={3}
                                     name="phone_number"
-                                    pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                                     placeholder="312 000 0000"
                                 />
                                 <InputError message={errors.phone_number} />

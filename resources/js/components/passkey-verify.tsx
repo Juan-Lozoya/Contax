@@ -51,7 +51,7 @@ export default function PasskeyVerify({
                 >
                     {isLoading ? <Spinner /> : <KeyRound className="h-4 w-4" />}
                     {isLoading
-                        ? (loadingLabel ?? 'Authenticating...')
+                        ? (loadingLabel ?? 'Autentificando...')
                         : (label ?? 'Sign in with passkey')}
                 </Button>
                 {error && (
@@ -65,7 +65,7 @@ export default function PasskeyVerify({
                 </div>
                 <div className="relative flex justify-center text-xs uppercase">
                     <span className="bg-background px-2 text-muted-foreground">
-                        {separator ?? 'Or continue with email'}
+                        {separator ?? 'o con tu correo'}
                     </span>
                 </div>
             </div>

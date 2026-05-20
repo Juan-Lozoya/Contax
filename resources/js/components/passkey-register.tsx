@@ -51,7 +51,7 @@ export default function PasskeyRegistration({ onSuccess }: Props) {
     if (!isSupported) {
         return (
             <div className="text-sm text-muted-foreground">
-                Passkeys are not supported in this browser.
+                Este navegador no soporta Passkeys.
             </div>
         );
     }
@@ -59,7 +59,7 @@ export default function PasskeyRegistration({ onSuccess }: Props) {
     if (!showForm) {
         return (
             <Button variant="outline" onClick={() => setShowForm(true)}>
-                Add passkey
+                Añadir passkey
             </Button>
         );
     }
@@ -81,7 +81,8 @@ export default function PasskeyRegistration({ onSuccess }: Props) {
                     autoFocus
                 />
                 <p className="text-xs text-muted-foreground">
-                    A name helps you identify this passkey later.
+                    Un nombre te ayudará a identificar esta clave de acceso más
+                    adelante.
                 </p>
             </div>
 
@@ -89,10 +90,10 @@ export default function PasskeyRegistration({ onSuccess }: Props) {
 
             <div className="flex gap-2">
                 <Button type="submit" disabled={isLoading || !name.trim()}>
-                    {isLoading ? 'Registering...' : 'Register passkey'}
+                    {isLoading ? 'Registrando...' : 'Registrar passkey'}
                 </Button>
                 <Button type="button" variant="ghost" onClick={handleCancel}>
-                    Cancel
+                    Cancelar
                 </Button>
             </div>
         </form>

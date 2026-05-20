@@ -18,15 +18,15 @@ export default function Profile() {
 
     return (
         <>
-            <Head title="Profile settings" />
+            <Head title="Configuracion de Perfil" />
 
-            <h1 className="sr-only">Profile settings</h1>
+            <h1 className="sr-only">Configuracion de Perfil</h1>
 
             <div className="space-y-6">
                 <Heading
                     variant="small"
-                    title="Profile information"
-                    description="Update your name and email address"
+                    title="Informacion del Perfil"
+                    description="Actualiza tus datos"
                 />
 
                 <Form
@@ -39,7 +39,7 @@ export default function Profile() {
                     {({ processing, errors }) => (
                         <>
                             <div className="grid gap-2">
-                                <Label htmlFor="name">Name</Label>
+                                <Label htmlFor="name">Nombre</Label>
 
                                 <Input
                                     id="name"
@@ -48,7 +48,7 @@ export default function Profile() {
                                     name="name"
                                     required
                                     autoComplete="name"
-                                    placeholder="Full name"
+                                    placeholder="Nombre Completo"
                                 />
 
                                 <InputError
@@ -58,7 +58,9 @@ export default function Profile() {
                             </div>
 
                             <div className="grid gap-2">
-                                <Label htmlFor="email">Email address</Label>
+                                <Label htmlFor="email">
+                                    Correo electrónico
+                                </Label>
 
                                 <Input
                                     id="email"
@@ -68,7 +70,28 @@ export default function Profile() {
                                     name="email"
                                     required
                                     autoComplete="username"
-                                    placeholder="Email address"
+                                    placeholder="tu@correo.com"
+                                />
+
+                                <InputError
+                                    className="mt-2"
+                                    message={errors.email}
+                                />
+                            </div>
+
+                            <div className="grid gap-2">
+                                <Label htmlFor="phone_number">
+                                    Número de Teléfono
+                                </Label>
+
+                                <Input
+                                    id="phone_number"
+                                    type="tel"
+                                    className="mt-1 block w-full"
+                                    defaultValue={auth.user.phone_number ?? ''}
+                                    name="phone_number"
+                                    autoComplete="phone"
+                                    placeholder="312 000 0000"
                                 />
 
                                 <InputError
@@ -82,7 +105,7 @@ export default function Profile() {
                                     disabled={processing}
                                     data-test="update-profile-button"
                                 >
-                                    Save
+                                    Guardar
                                 </Button>
                             </div>
                         </>
