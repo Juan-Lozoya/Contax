@@ -1,4 +1,11 @@
-export default function IndexClientes() {
+import type { Clients } from '@/types/models/clients';
+import type { PaginatedData } from '@/types/pagination';
+
+interface Props {
+    clients: PaginatedData<Clients>;
+}
+
+export default function IndexClientes({ clients }: Props) {
     return (
         <>
             <h1>Hola </h1>

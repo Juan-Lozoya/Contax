@@ -7,6 +7,7 @@ use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -33,8 +34,8 @@ class User extends Authenticatable implements PasskeyUser
         ];
     }
 
-    public function client(): HasOne
+    public function clients(): HasMany
     {
-        return $this->hasOne(Client::class);
+        return $this->hasMany(Client::class);
     }
 }
