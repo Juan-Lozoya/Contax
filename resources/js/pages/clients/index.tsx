@@ -1,11 +1,11 @@
-import type { Clients } from '@/types/models/clients';
+import type { Client } from '@/types/models/clients';
 import type { PaginatedData } from '@/types/pagination';
 
 interface Props {
-    clients: PaginatedData<Clients>;
+    clients: PaginatedData<Client>;
 }
 
-export default function IndexClientes({ clients }: Props) {
+export default function IndexClients({ clients }: Props) {
     return (
         <>
             <h1>Hola </h1>
@@ -13,7 +13,7 @@ export default function IndexClientes({ clients }: Props) {
     );
 }
 
-IndexClientes.layout = {
+IndexClients.layout = {
     breadcrumbs: [
         {
             title: 'Información de Clientes',

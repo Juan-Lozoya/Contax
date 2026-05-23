@@ -27,7 +27,8 @@ class Client extends Model
     protected function casts(): array
     {
         return [
-            'rfc' => 'encrypted'
+            'rfc' => 'encrypted',
+            'is_active' => 'boolean',
         ];
     }
 

@@ -2,44 +2,86 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreClientRequest;
+use App\Http\Requests\UpdateClientRequest;
+use App\Models\Client;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
+use Inertia\Response;
 
 class ClientController extends Controller
 {
-    public function index(Request $request)
+    public function index(Request $request): Response
     {
         $clients = $request->user()->clients()->latest()->paginate(10);
 
-        return Inertia::render('clientes/index', [
+        return Inertia::render('clients/index', [
             'clients' => $clients,
         ]);
     }
 
-    public function store()
+    public function store(StoreClientRequest $request): RedirectResponse
     {
+        Client::create([
+            ...$request->validated(),
+            'user_id' => $request->user()->id
+        ]);
 
+        return redirect()
+            ->route('clients.index')
+            ->with('toast', [
+                'type' => 'success',
+                'message' => __('Cliente creado exitosamente')
+            ]);
     }
 
-    public function create()
+    public function create(): Response
     {
-
+        return Inertia::render('clients/create');
     }
 
-    public function show(Request $id)
+    public function update(UpdateClientRequest $request, Client $client): RedirectResponse
     {
-        $userId = $id;
+        $this->authorizeClient($client);
+        $client->update($request->validated());
+
+        return redirect()
+            ->route('clients.index')
+            ->with('toast', [
+                'type' => 'success',
+                'message' => __('Cliente actualizado exitosamente')
+            ]);
     }
 
-    public function update()
+    public function destroy(Client $client): RedirectResponse
     {
+        $this->authorizeClient($client);
+        $client->delete();
 
+        return redirect()
+            ->route('clients.index')
+            ->with('toast', [
+                'type' => 'success',
+                'message' => __('Cliente borrado exitosamente')
+            ]);
     }
 
-    public function destroy()
+    public function edit(Client $client): Response
     {
+        $this->authorizeClient($client);
 
+        return Inertia::render('clients/edit', [
+            'client' => $client
+        ]);
     }
 
-    public function edit() {}
+    private function authorizeClient(Client $client): void
+    {
+        abort_if(
+            Auth::user()->id !== $client->user_id,
+            403
+        );
+    }
 }
