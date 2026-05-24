@@ -1,0 +1,42 @@
+<?php
+
+namespace Database\Factories;
+
+use App\Models\Client;
+use App\Models\User;
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+/**
+ * @extends Factory<Client>
+ */
+class ClientFactory extends Factory
+{
+    /**
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
+     */
+    public function definition(): array
+    {
+        return [
+            'user_id' => User::factory(),
+            'name' => fake()->name(),
+            'email' => fake()->optional()->safeEmail(),
+            'phone_number' => fake()->optional()->numerify('##########'),
+            'rfc' => strtoupper(fake()->bothify('????######???')),
+            'tax_regime' => fake()->optional()->randomElement([
+                '601',
+                '603',
+                '605',
+                '606',
+                '612',
+                '621',
+                '626',
+            ]),
+            'zip_code' => fake()->optional()->numerify('#####'),
+            'corporate_reason' => fake()->optional()->company(),
+            'commercial_name' => fake()->optional()->company(),
+            'is_active' => fake()->boolean(90),
+        ];
+    }
+}
