@@ -24,7 +24,7 @@ type IconProps = {
     icon: LucideIcon;
 };
 
-const ButtonIcon = ({ icon: Icon }: IconProps) => (
+export const ButtonIcon = ({ icon: Icon }: IconProps) => (
     <div className="w-fit rounded-lg bg-red-300 p-2">
         <Icon size={16} className="text-white dark:text-black" />
     </div>

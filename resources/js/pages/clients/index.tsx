@@ -1,3 +1,9 @@
+import {
+    HeaderClient,
+    SearchUtils,
+    NoClientsCard,
+} from '@/components/clients-index';
+
 import type { Client } from '@/types/models/clients';
 import type { PaginatedData } from '@/types/pagination';
 
@@ -8,7 +14,9 @@ interface Props {
 export default function IndexClients({ clients }: Props) {
     return (
         <>
-            <h1>Hola </h1>
+            <HeaderClient />
+            <SearchUtils />
+            <NoClientsCard />
         </>
     );
 }

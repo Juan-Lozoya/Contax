@@ -3,7 +3,7 @@ import {
     TotalClientsCard,
     AddNewClientCard,
     RecentClientsTableCard,
-} from '@/components/app-cards-dashboard';
+} from '@/components/dashboard-cards';
 import type { Client } from '@/types/models/clients';
 
 interface Props {
