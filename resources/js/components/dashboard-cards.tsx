@@ -24,13 +24,17 @@ type IconProps = {
     icon: LucideIcon;
 };
 
+type TotalClientsCardProps = {
+    numberClients: number;
+};
+
 export const ButtonIcon = ({ icon: Icon }: IconProps) => (
     <div className="w-fit rounded-lg bg-red-300 p-2">
         <Icon size={16} className="text-white dark:text-black" />
     </div>
 );
 
-export const TotalClientsCard = () => (
+export const TotalClientsCard = ({ numberClients }: TotalClientsCardProps) => (
     <Card>
         <CardHeader className="flex flex-row items-center justify-between">
             <CardTitle>Clientes Totales</CardTitle>
@@ -38,10 +42,8 @@ export const TotalClientsCard = () => (
         </CardHeader>
         <CardContent>
             <>
-                <div className="text-4xl">0</div>
-                <span className="text-sm text-gray-400">
-                    Sin límite de registros
-                </span>
+                <div className="text-4xl">{numberClients}</div>
+                <span className="miniGray">Sin límite de registros</span>
             </>
         </CardContent>
     </Card>
@@ -55,7 +57,7 @@ export const AddNewClientCard = () => (
         <CardContent>
             <>
                 <h1>Agregar Cliente</h1>
-                <span className="text-sm text-gray-400">
+                <span className="miniGray">
                     Registra un nuevo cliente en segundos
                 </span>
             </>
@@ -71,7 +73,7 @@ export const RecentClientsTableCard = (clients: Client[]) => (
         <CardContent>
             {!clients.length && (
                 <div className="flex flex-col items-center justify-center gap-y-3">
-                    <span className="text-sm text-gray-400">
+                    <span className="miniGray">
                         Aún no tienes clientes registrados.
                     </span>
                     <Button variant="colored">

@@ -81,6 +81,7 @@ export default function Login({ status }: Props) {
 
                             <Button
                                 type="submit"
+                                variant="colored"
                                 className="mt-4 w-full"
                                 tabIndex={4}
                                 disabled={processing}

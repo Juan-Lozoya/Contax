@@ -106,6 +106,7 @@ export default function Register({ passwordRules }: Props) {
 
                             <Button
                                 type="submit"
+                                variant="colored"
                                 className="mt-2 w-full"
                                 tabIndex={6}
                                 data-test="register-user-button"

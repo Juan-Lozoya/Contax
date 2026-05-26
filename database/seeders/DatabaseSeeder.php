@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             PaymentFormSeeder::class,
             InvoiceStatusSeeder::class,
             CfdiTypeSeeder::class,
+            TaxRegimeSeeder::class,
         ]);
     }
 }

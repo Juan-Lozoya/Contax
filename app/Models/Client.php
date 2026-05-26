@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
     'email',
     'phone_number',
     'rfc',
-    'tax_regime',
+    'tax_regime_id',
     'zip_code',
     'corporate_reason',
     'commercial_name',
@@ -36,5 +36,10 @@ class Client extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function taxRegime(): BelongsTo
+    {
+        return $this->belongsTo(TaxRegime::class);
     }
 }

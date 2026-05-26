@@ -15,7 +15,11 @@ class ClientController extends Controller
 {
     public function index(Request $request): Response
     {
-        $clients = $request->user()->clients()->latest()->paginate(10);
+        $clients = $request->user()
+            ->clients()
+            ->with('taxRegime')
+            ->latest()
+            ->paginate(10);
 
         return Inertia::render('clients/index', [
             'clients' => $clients,

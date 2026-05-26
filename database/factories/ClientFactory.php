@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Client;
+use App\Models\TaxRegime;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -24,15 +25,7 @@ class ClientFactory extends Factory
             'email' => fake()->optional()->safeEmail(),
             'phone_number' => fake()->optional()->numerify('##########'),
             'rfc' => strtoupper(fake()->bothify('????######???')),
-            'tax_regime' => fake()->optional()->randomElement([
-                '601',
-                '603',
-                '605',
-                '606',
-                '612',
-                '621',
-                '626',
-            ]),
+            'tax_regime_id' => TaxRegime::query()->inRandomOrder()->value('id'),
             'zip_code' => fake()->optional()->numerify('#####'),
             'corporate_reason' => fake()->optional()->company(),
             'commercial_name' => fake()->optional()->company(),

@@ -8,9 +8,7 @@ export const HeaderClient = () => (
     <div className="flex items-center justify-between pb-3">
         <div>
             <h1 className="text-4xl">Clientes</h1>
-            <span className="text-sm text-gray-400">
-                0 clientes en tu cartera
-            </span>
+            <span className="miniGray">0 clientes en tu cartera</span>
         </div>
         <Button variant="colored">
             <Plus size={16} /> Nuevo Cliente
@@ -37,7 +35,7 @@ export const NoClientsCard = () => (
                 <h2 className="font-display text-lg font-semibold text-foreground">
                     Aún no tienes clientes
                 </h2>
-                <span className="text-sm text-gray-400">
+                <span className="miniGray">
                     Comienza agregando tu primer cliente.
                 </span>
                 <Button variant="colored" className="mt-3">

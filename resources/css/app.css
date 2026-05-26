@@ -132,6 +132,11 @@
     --sidebar-ring: oklch(0.439 0 0);
 }
 
+.miniGray {
+    font-size: var(--text-sm);
+    color: var(--color-gray-400);
+}
+
 @layer base {
     * {
         @apply border-border;

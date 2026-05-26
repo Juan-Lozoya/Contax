@@ -11,11 +11,13 @@ interface Props {
 }
 
 export default function Dashboard({ clients }: Props) {
+    const clientsCount = clients.length;
+
     return (
         <>
             <Head title="Resumen" />
             <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
-                <TotalClientsCard />
+                <TotalClientsCard numberClients={clientsCount} />
 
                 <AddNewClientCard />
             </div>
