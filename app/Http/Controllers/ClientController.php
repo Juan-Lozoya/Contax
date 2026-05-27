@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreClientRequest;
 use App\Http\Requests\UpdateClientRequest;
 use App\Models\Client;
+use App\Models\TaxRegime;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -21,8 +22,20 @@ class ClientController extends Controller
             ->latest()
             ->paginate(10);
 
+        $taxRegime = TaxRegime::where('code', '626')->first();
+
+        $clientsMock = Client::factory()
+            ->count(8)
+            ->make([
+                'user_id' => Auth::id(),
+                'tax_regime_id' => $taxRegime->id,
+            ]);
+
+        $clientsMock->each->setRelation('taxRegime', $taxRegime);
+
         return Inertia::render('clients/index', [
             'clients' => $clients,
+            'clientsMock' => $clientsMock,
         ]);
     }
 

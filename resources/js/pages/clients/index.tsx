@@ -1,3 +1,4 @@
+import AppPagination from '@/components/app-pagination';
 import {
     HeaderClient,
     SearchUtils,
@@ -9,20 +10,24 @@ import type { PaginatedData } from '@/types/pagination';
 
 interface Props {
     clients: PaginatedData<Client>;
+    clientsMock: Client[];
 }
 
-export default function IndexClients({ clients }: Props) {
+export default function IndexClients({ clients, clientsMock }: Props) {
     return (
         <>
             <HeaderClient />
             <SearchUtils />
-            {/* <NoClientsCard /> */}
+            {!clientsMock.length && <NoClientsCard />}
 
             <div className="mt-3 grid grid-cols-1 gap-x-2 gap-y-3 md:grid-cols-2">
-                <UserCard />
-                <UserCard />
-                <UserCard />
+                {clientsMock.map((client) => (
+                    // Change key after disabling mock
+                    <UserCard client={client} key={client.rfc} />
+                ))}
             </div>
+
+            <AppPagination />
         </>
     );
 }
