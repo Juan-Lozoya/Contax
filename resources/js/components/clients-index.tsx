@@ -1,9 +1,9 @@
 import { Plus, Search, Building2 } from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
-import { ClientForm } from '@/pages/clients/partials/ClientForm';
 import { ButtonIcon } from './dashboard-cards';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
+import { Card, CardContent } from '@/components/ui/card';
+import { CreateClientDialog } from '@/pages/clients/partials/CreateClientDialog';
 
 export const HeaderClient = () => (
     <div className="flex items-center justify-between pb-3">
@@ -12,7 +12,7 @@ export const HeaderClient = () => (
             <span className="miniGray">0 clientes en tu cartera</span>
         </div>
         {/* Get the Solution in order to get out the dialog */}
-        <ClientForm />
+        <CreateClientDialog />
     </div>
 );
 

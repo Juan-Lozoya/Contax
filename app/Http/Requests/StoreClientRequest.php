@@ -27,7 +27,7 @@ class StoreClientRequest extends FormRequest
             'email' => ['nullable', 'email', 'max:255'],
             'phone_number' => ['nullable', 'string', 'max:20'],
             'rfc' => ['required', 'string', 'max:13'],
-            'tax_regime_id' => ['nullable', 'numeric', 'max:100'],
+            'tax_regime_id' => ['required', 'numeric', 'max:100'],
             'zip_code' => ['nullable', 'string', 'max:10'],
             'corporate_reason' => ['nullable', 'string', 'max:255'],
             'commercial_name' => ['nullable', 'string', 'max:255'],
