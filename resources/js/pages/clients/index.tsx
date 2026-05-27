@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import AppPagination from '@/components/app-pagination';
 import {
     HeaderClient,
@@ -14,6 +15,17 @@ interface Props {
 }
 
 export default function IndexClients({ clients, clientsMock }: Props) {
+    const [newClient, setNewClient] = useState<Omit<Client, 'id' | 'user_id'>>({
+        name: '',
+        email: '',
+        phone_number: '',
+        rfc: '',
+        tax_regime_id: undefined,
+        zip_code: '',
+        corporate_reason: '',
+        commercial_name: '',
+        is_active: true,
+    });
     return (
         <>
             <HeaderClient />

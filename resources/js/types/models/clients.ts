@@ -7,7 +7,7 @@ export type Client = {
     email?: string;
     phone_number?: string;
     rfc: string;
-    tax_regime_id: number;
+    tax_regime_id?: number;
     tax_regime?: TaxRegime;
     zip_code?: string;
     corporate_reason?: string;

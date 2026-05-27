@@ -1,8 +1,9 @@
 import { Plus, Search, Building2 } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card';
+import { ClientForm } from '@/pages/clients/partials/ClientForm';
 import { ButtonIcon } from './dashboard-cards';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
-import { Card, CardContent } from '@/components/ui/card';
 
 export const HeaderClient = () => (
     <div className="flex items-center justify-between pb-3">
@@ -10,9 +11,8 @@ export const HeaderClient = () => (
             <h1 className="text-4xl">Clientes</h1>
             <span className="miniGray">0 clientes en tu cartera</span>
         </div>
-        <Button variant="colored">
-            <Plus size={16} /> Nuevo Cliente
-        </Button>
+        {/* Get the Solution in order to get out the dialog */}
+        <ClientForm />
     </div>
 );
 
